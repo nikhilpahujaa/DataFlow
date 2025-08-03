@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Database, 
-  BarChart3, 
-  ArrowRightLeft, 
-  Shield, 
-  Zap, 
+import {
+  Database,
+  BarChart3,
+  ArrowRightLeft,
+  Shield,
+  Zap,
   CheckCircle,
-  Play,
-  Settings,
   ArrowRight
 } from 'lucide-react';
 
@@ -56,12 +54,6 @@ const Home = () => {
       color: 'text-indigo-600',
       bgColor: 'bg-indigo-50'
     }
-  ];
-
-  const supportedDatabases = [
-    { name: 'MySQL', type: 'Source', color: 'bg-blue-100 text-blue-800' },
-    { name: 'PostgreSQL', type: 'Target', color: 'bg-green-100 text-green-800' },
-    { name: 'MongoDB', type: 'Target', color: 'bg-purple-100 text-purple-800' }
   ];
 
   return (

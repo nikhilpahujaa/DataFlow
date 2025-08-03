@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BarChart3, Database, Table, Link as LinkIcon, AlertCircle, CheckCircle, Loader } from 'lucide-react';
+import { BarChart3, Table, Link as LinkIcon, AlertCircle, CheckCircle, Loader } from 'lucide-react';
 
 const Analyze = () => {
   const [formData, setFormData] = useState({
@@ -261,4 +261,4 @@ const Analyze = () => {
   );
 };
 
-export default Analyze; 
+export default Analyze;
