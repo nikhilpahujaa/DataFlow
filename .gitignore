@@ -1,0 +1,24 @@
+# Node modules
+client/node_modules/
+
+# Python virtual environment
+server/venv/
+
+# Environment variables
+server/.env
+
+# Build artifacts
+client/build/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel specific
+.vercel/
