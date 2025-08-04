@@ -12,7 +12,7 @@ import SkeletonLoader from "../components/SkeletonLoader";
 
 const Analyze = () => {
   const [formData, setFormData] = useState({
-    mysql_host: "localhost",
+    mysql_host: "",
     mysql_port: 3306,
     mysql_database: "",
     mysql_user: "",
@@ -86,6 +86,12 @@ const Analyze = () => {
           Connect to your MySQL database to analyze its schema and get
           intelligent recommendations.
         </p>
+        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3 mx-4">
+          <p className="text-xs sm:text-sm text-blue-700 dark:text-blue-300">
+            <strong>Note:</strong> Your database must be accessible from the internet (not localhost) for Vercel deployment. 
+            Use your database's public IP address or hostname.
+          </p>
+        </div>
       </div>
 
       {/* Connection Form */}
@@ -105,7 +111,7 @@ const Analyze = () => {
                 value={formData.mysql_host}
                 onChange={handleInputChange}
                 className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm sm:text-base bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
-                placeholder="localhost"
+                placeholder="your-database-host.com or IP address"
                 required
               />
             </div>
@@ -168,7 +174,7 @@ const Analyze = () => {
               />
             </div>
           </div>
-          <div className="flex justify-center pt-2">
+          <div className="flex justify-center pt-2 space-x-4">
             <button
               type="submit"
               disabled={loading}
@@ -185,6 +191,21 @@ const Analyze = () => {
                   Analyze Database
                 </>
               )}
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setFormData({
+                  mysql_host: "demo.example.com",
+                  mysql_port: 3306,
+                  mysql_database: "demo_db",
+                  mysql_user: "demo_user",
+                  mysql_password: "demo_pass",
+                });
+              }}
+              className="inline-flex items-center px-4 sm:px-6 py-3 bg-gray-600 text-white font-medium rounded-lg hover:bg-gray-700 transition-all duration-200 transform hover:scale-105 text-sm sm:text-base"
+            >
+              Fill Demo Data
             </button>
           </div>
         </form>
