@@ -6,6 +6,10 @@ from app.services.migrator import Migrator
 
 router = APIRouter()
 
+@router.get("/health")
+def health_check():
+    return {"status": "healthy", "message": "API is running"}
+
 class AnalyzeRequest(BaseModel):
     mysql_host: str
     mysql_port: int
@@ -29,6 +33,7 @@ class TransferStatus(BaseModel):
 
 @router.post("/analyze", response_model=AnalyzeResponse)
 def analyze_db(request: AnalyzeRequest):
+    print(f"Received analyze request for database: {request.mysql_database}")
     try:
         # Use Analyzer to inspect MySQL schema
         analyzer = Analyzer(request.dict())

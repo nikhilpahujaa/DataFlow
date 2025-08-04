@@ -37,7 +37,7 @@ const Analyze = () => {
     setResult(null);
 
     try {
-      const response = await fetch("/analyze", {
+      const response = await fetch("/api/analyze", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,7 +53,11 @@ const Analyze = () => {
 
       setResult(data);
     } catch (err) {
-      setError(err.message);
+      if (err.message.includes('JSON')) {
+        setError('API server is not available. Please check if the backend is running.');
+      } else {
+        setError(err.message);
+      }
     } finally {
       setLoading(false);
     }

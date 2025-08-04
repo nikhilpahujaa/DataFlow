@@ -89,7 +89,7 @@ const Migrate = () => {
     setShowSuccess(false);
 
     try {
-      const response = await fetch('/transfer', {
+      const response = await fetch('/api/transfer', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -106,7 +106,11 @@ const Migrate = () => {
       setResult(data);
       setShowSuccess(true);
     } catch (err) {
-      setError(err.message);
+      if (err.message.includes('JSON')) {
+        setError('API server is not available. Please check if the backend is running.');
+      } else {
+        setError(err.message);
+      }
       setShowError(true);
     } finally {
       setLoading(false);
