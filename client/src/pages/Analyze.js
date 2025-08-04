@@ -53,8 +53,10 @@ const Analyze = () => {
 
       setResult(data);
     } catch (err) {
-      if (err.message.includes('JSON')) {
-        setError('API server is not available. Please check if the backend is running.');
+      if (err.message.includes("JSON")) {
+        setError(
+          "API server is not available. Please check if the backend is running."
+        );
       } else {
         setError(err.message);
       }
@@ -86,12 +88,6 @@ const Analyze = () => {
           Connect to your MySQL database to analyze its schema and get
           intelligent recommendations.
         </p>
-        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3 mx-4">
-          <p className="text-xs sm:text-sm text-blue-700 dark:text-blue-300">
-            <strong>Note:</strong> Your database must be accessible from the internet (not localhost) for Vercel deployment. 
-            Use your database's public IP address or hostname.
-          </p>
-        </div>
       </div>
 
       {/* Connection Form */}
@@ -174,7 +170,7 @@ const Analyze = () => {
               />
             </div>
           </div>
-          <div className="flex justify-center pt-2 space-x-4">
+          <div className="flex justify-center pt-2">
             <button
               type="submit"
               disabled={loading}
@@ -191,21 +187,6 @@ const Analyze = () => {
                   Analyze Database
                 </>
               )}
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setFormData({
-                  mysql_host: "demo.example.com",
-                  mysql_port: 3306,
-                  mysql_database: "demo_db",
-                  mysql_user: "demo_user",
-                  mysql_password: "demo_pass",
-                });
-              }}
-              className="inline-flex items-center px-4 sm:px-6 py-3 bg-gray-600 text-white font-medium rounded-lg hover:bg-gray-700 transition-all duration-200 transform hover:scale-105 text-sm sm:text-base"
-            >
-              Fill Demo Data
             </button>
           </div>
         </form>
