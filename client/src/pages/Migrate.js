@@ -124,38 +124,38 @@ const Migrate = () => {
       return (
         <>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Database Name</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Database Name</label>
             <input
               type="text"
               name="target_database"
               value={formData.target_credentials.database || ''}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm sm:text-base"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm sm:text-base bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
               placeholder="Enter database name"
               required
             />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Username</label>
               <input
                 type="text"
                 name="target_user"
                 value={formData.target_credentials.user || ''}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm sm:text-base"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm sm:text-base bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
                 placeholder="postgres"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
               <input
                 type="password"
                 name="target_password"
                 value={formData.target_credentials.password || ''}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm sm:text-base"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm sm:text-base bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
                 placeholder="Enter password"
                 required
               />
@@ -169,25 +169,25 @@ const Migrate = () => {
       return (
         <>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Connection URI</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Connection URI</label>
             <input
               type="text"
               name="target_uri"
               value={formData.target_credentials.uri || ''}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
               placeholder="mongodb://localhost:27017"
               required
             />
           </div>
           <div className="mt-4">
-            <label className="block text-sm font-medium text-gray-700 mb-1">Database Name</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Database Name</label>
             <input
               type="text"
               name="target_database"
               value={formData.target_credentials.database || ''}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
               placeholder="Enter database name"
               required
             />
@@ -201,21 +201,21 @@ const Migrate = () => {
   return (
     <div className="space-y-6 sm:space-y-8">
       <div className="text-center">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Database Migration</h1>
-        <p className="text-sm sm:text-base text-gray-600 px-4">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">Database Migration</h1>
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 px-4">
           Migrate your MySQL database to PostgreSQL or MongoDB with automatic schema conversion.
         </p>
       </div>
 
       <form onSubmit={handleSubmit}>
         {/* Target Database Selection */}
-        <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-6 max-w-md mx-auto">
-          <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 text-center">Select Target Database</h2>
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 sm:p-6 mb-6 max-w-md mx-auto">
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-4 text-center">Select Target Database</h2>
           <select
             name="target_db"
             value={formData.target_db}
             onChange={handleInputChange}
-            className="w-full px-4 py-2 border border-gray-200 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
+            className="w-full px-4 py-2 border-2 border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm sm:text-base text-gray-900 dark:text-white transition-all duration-200 font-semibold"
           >
             <option value="postgresql">PostgreSQL</option>
             <option value="mongodb">MongoDB</option>
@@ -225,71 +225,71 @@ const Migrate = () => {
         {/* Two Column Layout for Source and Target */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* MySQL Source Database Section */}
-          <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-6">
-            <h2 className="text-base sm:text-lg font-semibold mb-4 flex items-center text-gray-800">
-              <Database className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-blue-600" />
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-4 sm:p-6 mb-6">
+            <h2 className="text-lg sm:text-xl font-bold mb-4 flex items-center text-gray-900 dark:text-white">
+              <Database className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-blue-600" />
               MySQL Source Database
             </h2>
             <div className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Host</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Host</label>
                   <input
                     type="text"
                     name="mysql_host"
                     value={formData.mysql_credentials.host || ''}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
                     placeholder="localhost"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Port</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Port</label>
                   <input
                     type="number"
                     name="mysql_port"
                     value={formData.mysql_credentials.port || ''}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
                     placeholder="3306"
                     required
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Database Name</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Database Name</label>
                 <input
                   type="text"
                   name="mysql_database"
                   value={formData.mysql_credentials.database || ''}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
                   placeholder="Enter database name"
                   required
                 />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Username</label>
                   <input
                     type="text"
                     name="mysql_user"
                     value={formData.mysql_credentials.user || ''}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
                     placeholder="Enter username"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
                   <input
                     type="password"
                     name="mysql_password"
                     value={formData.mysql_credentials.password || ''}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
                     placeholder="Enter password"
                     required
                   />
@@ -299,9 +299,9 @@ const Migrate = () => {
           </div>
 
           {/* Target Database Connection Section */}
-          <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-6">
-            <h2 className="text-base sm:text-lg font-semibold mb-4 flex items-center text-gray-800">
-              <Database className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-primary-600" />
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-4 sm:p-6 mb-6">
+            <h2 className="text-lg sm:text-xl font-bold mb-4 flex items-center text-gray-900 dark:text-white">
+              <Database className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-primary-600" />
               {formData.target_db === 'postgresql' ? 'PostgreSQL' : 'MongoDB'} Connection Details
             </h2>
             <div className="space-y-4">
@@ -309,25 +309,25 @@ const Migrate = () => {
                 <>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Host</label>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Host</label>
                       <input
                         type="text"
                         name="target_host"
                         value={formData.target_credentials.host || ''}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
                         placeholder="localhost"
                         required
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Port</label>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Port</label>
                       <input
                         type="number"
                         name="target_port"
                         value={formData.target_credentials.port || ''}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
                         placeholder={getTargetPort()}
                         required
                       />
@@ -348,7 +348,7 @@ const Migrate = () => {
           <button
             type="submit"
             disabled={loading}
-            className="inline-flex items-center px-4 sm:px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm sm:text-base"
+            className="inline-flex items-center px-4 sm:px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-105 text-sm sm:text-base"
           >
             {loading ? (
               <>
@@ -367,23 +367,23 @@ const Migrate = () => {
 
       {/* Error Display */}
       {showError && error && (
-        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
           <div className="flex items-center">
             <AlertCircle className="h-5 w-5 text-red-600 mr-2" />
-            <span className="text-red-800 font-medium">Error</span>
+            <span className="text-red-800 dark:text-red-200 font-medium">Error</span>
           </div>
-          <p className="text-red-700 mt-1 text-sm sm:text-base">{error}</p>
+          <p className="text-red-700 dark:text-red-300 mt-1 text-sm sm:text-base">{error}</p>
         </div>
       )}
 
       {/* Success Display */}
       {showSuccess && result && (
-        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
           <div className="flex items-center">
             <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
-            <span className="text-green-800 font-medium">Success</span>
+            <span className="text-green-800 dark:text-green-200 font-medium">Success</span>
           </div>
-          <p className="text-green-700 mt-1 text-sm sm:text-base">{result.message}</p>
+          <p className="text-green-700 dark:text-green-300 mt-1 text-sm sm:text-base">{result.message}</p>
         </div>
       )}
     </div>

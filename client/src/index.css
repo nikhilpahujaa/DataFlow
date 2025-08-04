@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-50: #eff6ff;
+  --primary-100: #dbeafe;
+  --primary-200: #bfdbfe;
+  --primary-300: #93c5fd;
+  --primary-400: #60a5fa;
+  --primary-500: #3b82f6;
+  --primary-600: #2563eb;
+  --primary-700: #1d4ed8;
+  --primary-800: #1e40af;
+  --primary-900: #1e3a8a;
+  
+  --bg-primary: #ffffff;
+  --bg-secondary: #ffffff;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #1e1e2e;
+  --bg-secondary: #181825;
+  --text-primary: #cdd6f4;
+  --text-secondary: #a6adc8;
+  --border-color: #313244;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,7 +36,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f8fafc;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 code {
@@ -26,13 +55,25 @@ code {
   background: #f1f5f9;
 }
 
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #313244;
+}
+
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 4px;
 }
 
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #585b70;
+}
+
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #6c7086;
 }
 
 /* Responsive improvements */
@@ -87,4 +128,265 @@ button:focus, input:focus, select:focus, textarea:focus {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+/* Light mode specific styles */
+[data-theme="light"] .bg-white {
+  background-color: #ffffff;
+}
+
+/* Remove problematic shadows that look like underlines */
+[data-theme="light"] .shadow-sm {
+  box-shadow: none;
+}
+
+[data-theme="dark"] .shadow-sm {
+  box-shadow: none;
+}
+
+/* Improve database name visibility */
+[data-theme="light"] .bg-blue-100 {
+  background-color: #dbeafe;
+}
+
+[data-theme="light"] .bg-green-100 {
+  background-color: #dcfce7;
+}
+
+[data-theme="light"] .bg-purple-100 {
+  background-color: #f3e8ff;
+}
+
+[data-theme="light"] .text-blue-800 {
+  color: #1e40af;
+}
+
+[data-theme="light"] .text-green-800 {
+  color: #166534;
+}
+
+[data-theme="light"] .text-purple-800 {
+  color: #6b21a8;
+}
+
+/* Improve form field visibility */
+[data-theme="light"] input,
+[data-theme="light"] select,
+[data-theme="light"] textarea {
+  background-color: #ffffff;
+  border-color: #d1d5db;
+  border-width: 2px;
+  color: #111827;
+}
+
+[data-theme="light"] input:focus,
+[data-theme="light"] select:focus,
+[data-theme="light"] textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+[data-theme="light"] input::placeholder,
+[data-theme="light"] select::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* Improve form label visibility */
+[data-theme="light"] label {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="dark"] label {
+  color: #e5e7eb !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="light"] .bg-gray-50 {
+  background-color: #f9fafb;
+}
+
+[data-theme="light"] .bg-gray-100 {
+  background-color: #f3f4f6;
+}
+
+[data-theme="light"] .bg-gray-200 {
+  background-color: #e5e7eb;
+}
+
+[data-theme="light"] .bg-gray-700 {
+  background-color: #374151;
+}
+
+[data-theme="light"] .bg-gray-800 {
+  background-color: #1f2937;
+}
+
+[data-theme="light"] .text-gray-900 {
+  color: #111827;
+}
+
+[data-theme="light"] .text-gray-600 {
+  color: #4b5563;
+}
+
+[data-theme="light"] .text-gray-500 {
+  color: #6b7280;
+}
+
+[data-theme="light"] .text-gray-400 {
+  color: #9ca3af;
+}
+
+[data-theme="light"] .text-gray-300 {
+  color: #d1d5db;
+}
+
+[data-theme="light"] .border-gray-200 {
+  border-color: #e5e7eb;
+}
+
+[data-theme="light"] .border-gray-300 {
+  border-color: #d1d5db;
+}
+
+[data-theme="light"] .border-gray-600 {
+  border-color: #4b5563;
+}
+
+[data-theme="light"] .border-gray-700 {
+  border-color: #374151;
+}
+
+[data-theme="light"] .hover\:bg-gray-100:hover {
+  background-color: #f3f4f6;
+}
+
+[data-theme="light"] .hover\:bg-gray-200:hover {
+  background-color: #e5e7eb;
+}
+
+[data-theme="light"] .hover\:bg-gray-600:hover {
+  background-color: #4b5563;
+}
+
+[data-theme="light"] .hover\:bg-gray-700:hover {
+  background-color: #374151;
+}
+
+/* Dark mode specific styles - Vesper theme colors */
+[data-theme="dark"] .bg-white {
+  background-color: #181825;
+}
+
+[data-theme="dark"] .bg-gray-50 {
+  background-color: #1e1e2e;
+}
+
+[data-theme="dark"] .bg-gray-100 {
+  background-color: #313244;
+}
+
+[data-theme="dark"] .bg-gray-200 {
+  background-color: #45475a;
+}
+
+[data-theme="dark"] .bg-gray-700 {
+  background-color: #313244;
+}
+
+[data-theme="dark"] .bg-gray-800 {
+  background-color: #1e1e2e;
+}
+
+[data-theme="dark"] .text-gray-900 {
+  color: #cdd6f4;
+}
+
+[data-theme="dark"] .text-gray-600 {
+  color: #a6adc8;
+}
+
+[data-theme="dark"] .text-gray-500 {
+  color: #a6adc8;
+}
+
+[data-theme="dark"] .text-gray-400 {
+  color: #9399b2;
+}
+
+[data-theme="dark"] .text-gray-300 {
+  color: #a6adc8;
+}
+
+[data-theme="dark"] .border-gray-200 {
+  border-color: #313244;
+}
+
+[data-theme="dark"] .border-gray-300 {
+  border-color: #45475a;
+}
+
+[data-theme="dark"] .border-gray-600 {
+  border-color: #45475a;
+}
+
+[data-theme="dark"] .border-gray-700 {
+  border-color: #313244;
+}
+
+[data-theme="dark"] .hover\:bg-gray-100:hover {
+  background-color: #313244;
+}
+
+[data-theme="dark"] .hover\:bg-gray-200:hover {
+  background-color: #45475a;
+}
+
+[data-theme="dark"] .hover\:bg-gray-600:hover {
+  background-color: #45475a;
+}
+
+[data-theme="dark"] .hover\:bg-gray-700:hover {
+  background-color: #313244;
+}
+
+/* Loading animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
 } 
