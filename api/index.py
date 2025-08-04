@@ -8,7 +8,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'server'))
 
 from app.api.routes import router
 
-app = FastAPI(title="Oracle to MongoDB/PostgreSQL Migration Tool")
+app = FastAPI(title="MysSQL to MongoDB/PostgreSQL Migration Tool")
 
 # Add CORS middleware
 app.add_middleware(
