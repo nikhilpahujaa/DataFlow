@@ -64,23 +64,23 @@ const Analyze = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       <div className="text-center">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
           Database Analysis
         </h1>
-        <p className="text-gray-600">
+        <p className="text-sm sm:text-base text-gray-600 px-4">
           Connect to your MySQL database to analyze its schema and get intelligent recommendations.
         </p>
       </div>
 
       {/* Connection Form */}
-      <div className="bg-white rounded-lg shadow-sm p-6">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">
+      <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
+        <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">
           Database Connection
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Host
@@ -90,7 +90,7 @@ const Analyze = () => {
                 name="mysql_host"
                 value={formData.mysql_host}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
                 placeholder="localhost"
                 required
               />
@@ -104,7 +104,7 @@ const Analyze = () => {
                 name="mysql_port"
                 value={formData.mysql_port}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
                 placeholder="3306"
                 required
               />
@@ -119,12 +119,12 @@ const Analyze = () => {
               name="mysql_database"
               value={formData.mysql_database}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
               placeholder="Enter database name"
               required
             />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Username
@@ -134,7 +134,7 @@ const Analyze = () => {
                 name="mysql_user"
                 value={formData.mysql_user}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
                 placeholder="Enter username"
                 required
               />
@@ -148,26 +148,26 @@ const Analyze = () => {
                 name="mysql_password"
                 value={formData.mysql_password}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
                 placeholder="Enter password"
                 required
               />
             </div>
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center pt-2">
             <button
               type="submit"
               disabled={loading}
-              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="inline-flex items-center px-4 sm:px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm sm:text-base"
             >
               {loading ? (
                 <>
-                  <Loader className="h-5 w-5 mr-2 animate-spin" />
+                  <Loader className="h-4 w-4 sm:h-5 sm:w-5 mr-2 animate-spin" />
                   Analyzing...
                 </>
               ) : (
                 <>
-                  <BarChart3 className="h-5 w-5 mr-2" />
+                  <BarChart3 className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                   Analyze Database
                 </>
               )}
@@ -183,16 +183,16 @@ const Analyze = () => {
             <AlertCircle className="h-5 w-5 text-red-600 mr-2" />
             <span className="text-red-800 font-medium">Error</span>
           </div>
-          <p className="text-red-700 mt-1">{error}</p>
+          <p className="text-red-700 mt-1 text-sm sm:text-base">{error}</p>
         </div>
       )}
 
       {/* Results Display */}
       {result && (
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {/* Recommendation */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">
               Recommendation
             </h3>
             <div className="flex items-center space-x-3">
@@ -201,32 +201,32 @@ const Analyze = () => {
               </span>
               <CheckCircle className="h-5 w-5 text-green-600" />
             </div>
-            <p className="text-gray-600 mt-2">{result.summary}</p>
+            <p className="text-gray-600 mt-2 text-sm sm:text-base">{result.summary}</p>
           </div>
 
           {/* Schema Analysis */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">
               Schema Analysis
             </h3>
             
             {/* Tables */}
-            <div className="mb-6">
-              <h4 className="text-md font-medium text-gray-900 mb-3 flex items-center">
+            <div className="mb-4 sm:mb-6">
+              <h4 className="text-sm sm:text-base font-medium text-gray-900 mb-3 flex items-center">
                 <Table className="h-4 w-4 mr-2" />
                 Tables ({result.analysis.tables?.length || 0})
               </h4>
-              <div className="space-y-3 max-h-64 overflow-y-auto">
+              <div className="space-y-3 max-h-48 sm:max-h-64 overflow-y-auto">
                 {result.analysis.tables?.map((table, index) => (
                   <div key={index} className="border border-gray-200 rounded-lg p-3">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-medium text-gray-900">{table.name}</span>
-                      <span className="text-sm text-gray-500">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 space-y-1 sm:space-y-0">
+                      <span className="font-medium text-gray-900 text-sm sm:text-base">{table.name}</span>
+                      <span className="text-xs sm:text-sm text-gray-500">
                         {table.columns?.length || 0} columns
                       </span>
                     </div>
-                    <div className="text-sm text-gray-600">
-                      <div className="grid grid-cols-2 gap-2">
+                    <div className="text-xs sm:text-sm text-gray-600">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         <span>Primary Keys: {table.primary_keys?.join(', ') || 'None'}</span>
                         <span>Columns: {table.columns?.length || 0}</span>
                       </div>
@@ -240,13 +240,13 @@ const Analyze = () => {
 
             {/* Relationships */}
             <div>
-              <h4 className="text-md font-medium text-gray-900 mb-3 flex items-center">
+              <h4 className="text-sm sm:text-base font-medium text-gray-900 mb-3 flex items-center">
                 <LinkIcon className="h-4 w-4 mr-2" />
                 Relationships ({result.analysis.relationships?.length || 0})
               </h4>
-              <div className="space-y-2 max-h-48 overflow-y-auto">
+              <div className="space-y-2 max-h-36 sm:max-h-48 overflow-y-auto">
                 {result.analysis.relationships?.map((rel, index) => (
-                  <div key={index} className="text-sm text-gray-600 bg-gray-50 p-2 rounded">
+                  <div key={index} className="text-xs sm:text-sm text-gray-600 bg-gray-50 p-2 rounded break-all">
                     {rel.table}.{rel.column} → {rel.ref_table}.{rel.ref_column}
                   </div>
                 )) || (

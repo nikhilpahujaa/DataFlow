@@ -10,7 +10,7 @@ function App() {
     <Router>
       <div className="min-h-screen bg-gray-50">
         <Header />
-        <main className="px-[15%] py-8 pb-12">
+        <main className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-6 sm:py-8 pb-12">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/analyze" element={<Analyze />} />

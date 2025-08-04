@@ -33,4 +33,58 @@ code {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+}
+
+/* Responsive improvements */
+@media (max-width: 640px) {
+  /* Improve touch targets on mobile */
+  button, input, select, textarea {
+    min-height: 44px;
+  }
+  
+  /* Better spacing for mobile */
+  .space-y-4 > * + * {
+    margin-top: 1rem;
+  }
+  
+  .space-y-6 > * + * {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Medium screen optimizations (around 50% browser width) */
+@media (min-width: 640px) and (max-width: 1024px) {
+  /* Improve text readability on medium screens */
+  .text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  
+  /* Better card spacing for medium screens */
+  .grid-cols-2 > * {
+    min-width: 0;
+  }
+  
+  /* Improve button spacing */
+  .space-x-3 > * + * {
+    margin-left: 0.75rem;
+  }
+}
+
+/* Improve focus states for accessibility */
+button:focus, input:focus, select:focus, textarea:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for better UX */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 } 
