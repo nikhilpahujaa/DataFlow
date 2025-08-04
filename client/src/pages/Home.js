@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// Updated imports - removed unused icons
 import {
   Database,
   BarChart3,

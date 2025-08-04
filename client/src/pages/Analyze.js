@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
-import { BarChart3, Table, Link as LinkIcon, AlertCircle, CheckCircle, Loader } from 'lucide-react';
-import LoadingSpinner from '../components/LoadingSpinner';
-import SkeletonLoader from '../components/SkeletonLoader';
+import React, { useState } from "react";
+import {
+  BarChart3,
+  Table,
+  Link as LinkIcon,
+  AlertCircle,
+  CheckCircle,
+  Loader,
+} from "lucide-react";
+import LoadingSpinner from "../components/LoadingSpinner";
+import SkeletonLoader from "../components/SkeletonLoader";
 
 const Analyze = () => {
   const [formData, setFormData] = useState({
-    mysql_host: 'localhost',
+    mysql_host: "localhost",
     mysql_port: 3306,
-    mysql_database: '',
-    mysql_user: '',
-    mysql_password: ''
+    mysql_database: "",
+    mysql_user: "",
+    mysql_password: "",
   });
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
@@ -17,9 +24,9 @@ const Analyze = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -30,10 +37,10 @@ const Analyze = () => {
     setResult(null);
 
     try {
-      const response = await fetch('/analyze', {
-        method: 'POST',
+      const response = await fetch("/analyze", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -41,7 +48,7 @@ const Analyze = () => {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.detail || 'Failed to analyze database');
+        throw new Error(data.detail || "Failed to analyze database");
       }
 
       setResult(data);
@@ -54,14 +61,14 @@ const Analyze = () => {
 
   const getRecommendationColor = (recommendation) => {
     switch (recommendation?.toLowerCase()) {
-      case 'postgresql':
-        return 'text-green-600 bg-green-50 dark:bg-green-900/30';
-      case 'mysql':
-        return 'text-blue-600 bg-blue-50 dark:bg-blue-900/30';
-      case 'mongodb':
-        return 'text-purple-600 bg-purple-50 dark:bg-purple-900/30';
+      case "postgresql":
+        return "text-green-600 bg-green-50 dark:bg-green-900/30";
+      case "mysql":
+        return "text-blue-600 bg-blue-50 dark:bg-blue-900/30";
+      case "mongodb":
+        return "text-purple-600 bg-purple-50 dark:bg-purple-900/30";
       default:
-        return 'text-gray-600 bg-gray-50 dark:bg-gray-700';
+        return "text-gray-600 bg-gray-50 dark:bg-gray-700";
     }
   };
 
@@ -72,7 +79,8 @@ const Analyze = () => {
           Database Analysis
         </h1>
         <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 px-4">
-          Connect to your MySQL database to analyze its schema and get intelligent recommendations.
+          Connect to your MySQL database to analyze its schema and get
+          intelligent recommendations.
         </p>
       </div>
 
@@ -113,9 +121,9 @@ const Analyze = () => {
             </div>
           </div>
           <div>
-                          <label className="block text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">
-                Database Name
-              </label>
+            <label className="block text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">
+              Database Name
+            </label>
             <input
               type="text"
               name="mysql_database"
@@ -193,9 +201,13 @@ const Analyze = () => {
         <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 animate-in slide-in-from-top-2">
           <div className="flex items-center">
             <AlertCircle className="h-5 w-5 text-red-600 mr-2" />
-            <span className="text-red-800 dark:text-red-200 font-medium">Error</span>
+            <span className="text-red-800 dark:text-red-200 font-medium">
+              Error
+            </span>
           </div>
-          <p className="text-red-700 dark:text-red-300 mt-1 text-sm sm:text-base">{error}</p>
+          <p className="text-red-700 dark:text-red-300 mt-1 text-sm sm:text-base">
+            {error}
+          </p>
         </div>
       )}
 
@@ -208,12 +220,18 @@ const Analyze = () => {
               Recommendation
             </h3>
             <div className="flex items-center space-x-3">
-              <span className={`px-3 py-1 rounded-full text-sm font-medium ${getRecommendationColor(result.recommendation)}`}>
+              <span
+                className={`px-3 py-1 rounded-full text-sm font-medium ${getRecommendationColor(
+                  result.recommendation
+                )}`}
+              >
                 {result.recommendation}
               </span>
               <CheckCircle className="h-5 w-5 text-green-600" />
             </div>
-            <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm sm:text-base">{result.summary}</p>
+            <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm sm:text-base whitespace-pre-line">
+              {result.summary}
+            </p>
           </div>
 
           {/* Schema Analysis */}
@@ -221,7 +239,7 @@ const Analyze = () => {
             <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">
               Schema Analysis
             </h3>
-            
+
             {/* Tables */}
             <div className="mb-4 sm:mb-6">
               <h4 className="text-sm sm:text-base font-medium text-gray-900 dark:text-white mb-3 flex items-center">
@@ -230,22 +248,32 @@ const Analyze = () => {
               </h4>
               <div className="space-y-3 max-h-48 sm:max-h-64 overflow-y-auto">
                 {result.analysis.tables?.map((table, index) => (
-                  <div key={index} className="border border-gray-200 dark:border-gray-700 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                  <div
+                    key={index}
+                    className="border border-gray-200 dark:border-gray-700 rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
+                  >
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 space-y-1 sm:space-y-0">
-                      <span className="font-medium text-gray-900 dark:text-white text-sm sm:text-base">{table.name}</span>
+                      <span className="font-medium text-gray-900 dark:text-white text-sm sm:text-base">
+                        {table.name}
+                      </span>
                       <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                         {table.columns?.length || 0} columns
                       </span>
                     </div>
                     <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        <span>Primary Keys: {table.primary_keys?.join(', ') || 'None'}</span>
+                        <span>
+                          Primary Keys:{" "}
+                          {table.primary_keys?.join(", ") || "None"}
+                        </span>
                         <span>Columns: {table.columns?.length || 0}</span>
                       </div>
                     </div>
                   </div>
                 )) || (
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">No tables found</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm">
+                    No tables found
+                  </p>
                 )}
               </div>
             </div>
@@ -258,11 +286,16 @@ const Analyze = () => {
               </h4>
               <div className="space-y-2 max-h-36 sm:max-h-48 overflow-y-auto">
                 {result.analysis.relationships?.map((rel, index) => (
-                  <div key={index} className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-700 p-2 rounded break-all">
+                  <div
+                    key={index}
+                    className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-700 p-2 rounded break-all"
+                  >
                     {rel.table}.{rel.column} → {rel.ref_table}.{rel.ref_column}
                   </div>
                 )) || (
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">No relationships found</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm">
+                    No relationships found
+                  </p>
                 )}
               </div>
             </div>
